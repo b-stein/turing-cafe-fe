@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ResCard from '../ResCard/ResCard';
 import ResForm from '../ResForm/ResForm';
+import { getAllReservations } from "../apiCalls/apiCalls";
 
 class App extends Component {
 	constructor() {
@@ -14,7 +15,7 @@ class App extends Component {
 
 	componentDidMount = async () => {
 		try {
-			const data = await this.getAllReservations();
+			const data = await getAllReservations();
 			this.setState({reservations: data})
 		} catch (error) {
 			this.setState({error});
@@ -22,14 +23,7 @@ class App extends Component {
 	}
 
 	addReservation = async (newRes) => {
-		console.log(this.state.reservations);
 		await this.setState({ reservations: [...this.state.reservations, newRes] });
-	}
-
-	getAllReservations = async () => {
-		const response = await fetch(`http://localhost:3001/api/v1/reservations`);
-		const data = await response.json();
-		return data;
 	}
 
   render() {

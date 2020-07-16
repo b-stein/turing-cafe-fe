@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ResForm.css';
+import { submitResRequest } from "../apiCalls/apiCalls";
 
 class ResForm extends Component {
 	constructor(props) {
@@ -7,7 +8,7 @@ class ResForm extends Component {
 		this.state = {
 			name: '',
 			date: '',
-			time: 0,
+			time: '',
 			number: '',
 			error: null
 		}
@@ -21,28 +22,12 @@ class ResForm extends Component {
 		event.preventDefault();
 		try {
 			console.log(this.props);
-			const newRes = await this.submitResRequest(this.state);
+			const newRes = await submitResRequest(this.state);
 			this.props.addReservation(newRes);
 			this.setState({name: '', date: '', time: 0, number: ''});
 		} catch (error) {
 			this.setState({error});
 		}
-	}
-
-	submitResRequest = async (givenResInfo) => {
-		const request = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json'},
-			body: JSON.stringify({
-				name: givenResInfo.name,
-				date: givenResInfo.date,
-				time: givenResInfo.time,
-				number: givenResInfo.number
-			})
-		};
-		const response = await fetch(`http://localhost:3001/api/v1/reservations`, request);
-		const newRes = await response.json();
-		return newRes;
 	}
 
 	render() {
@@ -58,7 +43,7 @@ class ResForm extends Component {
 					required
 				/>
 				<input 
-					type='date' 
+					type='name' 
 					name='date'
 					aria-label='date-input' 
 					placeholder='date' 
@@ -67,7 +52,7 @@ class ResForm extends Component {
 					required
 				/>
 				<input 
-					type='time' 
+					type='name' 
 					name='time'
 					aria-label='time-input' 
 					placeholder='time for reservation' 
