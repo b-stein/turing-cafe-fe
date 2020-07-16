@@ -77,6 +77,7 @@ class ResForm extends Component {
 				>
 					Make Reservation
 				</button>
+				{this.state.error && <div className='error-msg'>{this.state.error.message}</div>}
 			</>
 		)
 	}

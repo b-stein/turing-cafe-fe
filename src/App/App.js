@@ -38,6 +38,7 @@ class App extends Component {
 					return <ResCard resInfo={res} key={res.date} />
 				})}
         </div>
+				{this.state.error && <div className='error-msg'>{this.state.error.message}</div>}
       </div>
     )
   }
