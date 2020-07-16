@@ -32,7 +32,7 @@ describe('ResForm', () => {
 
 	it('Should capture form inputs', () => {
 		const submitResRequest = jest.fn();
-		const { debug, getByPlaceholderText } = render(
+		const { getByPlaceholderText } = render(
 			<ResForm addReservation={jest.fn()} submitResRequest={submitResRequest} />
 		);
 

@@ -9,7 +9,7 @@ const ResCard = ({resInfo}) => {
 			<p>{resInfo.date}</p>
 			<p>{resInfo.time} pm</p>
 			<p>Number of guests: {resInfo.number}</p>
-			<button>Cancel</button>
+			<button aria-label='cancel-button'>Cancel</button>
 		</section>
 
 	)
