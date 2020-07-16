@@ -1,0 +1,10 @@
+.res-card {
+	background-color: white;
+	width: 300px;
+	border-radius: 3%;
+	margin: 15px;
+	padding: 10px;
+	color: teal;
+	border: 5px solid teal;
+	font-size: 17px;
+}

@@ -17,3 +17,26 @@
   font-family: 'Pacifico', cursive;
   font-size: 50px;
 }
+
+.resy-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+button {
+	width: 90%;
+	color: white;
+	background: teal;
+	height: 3vh;
+	font-size: 16px;
+	border: 2px solid lightgrey;
+	border-radius: 2px;
+}
+
+.resy-form {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 30px;
+}
